@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e0b304ac74f9d4ab24db40a19cec58, type: 3}
+  m_Name: Non_la
+  m_EditorClassIdentifier: Assembly-CSharp::Wave_data
+  wave_ID: 02
+  wave_name: NON LA
+  hint: Non_la
+  infor: Non_la
+  image_hint: {fileID: 2800000, guid: a1a867ccc84a57e4bacf4d60d872272e, type: 3}
+  image_result: {fileID: 21300000, guid: 27bd2c601543b094ab345345c26d7601, type: 3}
+  part_main: {fileID: 11400000, guid: 439054a687b68514cb0eac5723052565, type: 2}
+  part_minis:
+  - {fileID: 11400000, guid: 3cd9d463ed2d93f4282397257862d51c, type: 2}
+  - {fileID: 11400000, guid: 7d48a41390064c54d88752e4b6e181d2, type: 2}
+  - {fileID: 11400000, guid: 3c55a421a88267e499400a5c1a1ab717, type: 2}
+  - {fileID: 11400000, guid: 9331283b924317841969697f021b9f7a, type: 2}
+  - {fileID: 11400000, guid: 3457362127731e54cb21323e3eddad71, type: 2}
+  - {fileID: 11400000, guid: 82007db09cf77dd44ae1a9af06e07a67, type: 2}
+  part_mini_count: 6
+  isCompleted: 0
