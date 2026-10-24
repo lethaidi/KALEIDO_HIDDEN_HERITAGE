@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e0b304ac74f9d4ab24db40a19cec58, type: 3}
+  m_Name: Gat_hat
+  m_EditorClassIdentifier: Assembly-CSharp::Wave_data
+  wave_ID: 02
+  wave_name: GAT HAT
+  hint: Gat_hat
+  infor: Gat_hat
+  image_hint: {fileID: 2800000, guid: 5b5fe6c2020707c44b57f9873637c194, type: 3}
+  image_result: {fileID: 21300000, guid: e1b95dda86d88114590e34f9bfa166af, type: 3}
+  part_main: {fileID: 11400000, guid: 65e3303136892ff4ca15351c0ddc4318, type: 2}
+  part_minis:
+  - {fileID: 11400000, guid: 3f9e34cf0816cfd4e8f336634c754104, type: 2}
+  - {fileID: 11400000, guid: 47826622305b48b41b497be996c145e7, type: 2}
+  - {fileID: 11400000, guid: f16faeea078650640aa84db4c30ae9fc, type: 2}
+  - {fileID: 11400000, guid: 8fc8dd2561158214b87848323bdd7125, type: 2}
+  - {fileID: 11400000, guid: 19ed2cfa68e768243b4909873d7a715a, type: 2}
+  - {fileID: 11400000, guid: 69e17cb813d104041bbddb336a9e955e, type: 2}
+  part_mini_count: 6
+  isCompleted: 0

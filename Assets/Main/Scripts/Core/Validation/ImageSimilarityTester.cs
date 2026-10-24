@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using System.Collections;
 
 public class ImageSimilarityTester : MonoBehaviour
 {
@@ -10,15 +11,29 @@ public class ImageSimilarityTester : MonoBehaviour
     [SerializeField] public Texture2D targetMask;
     [SerializeField] private RawImage Image_hint;
     [SerializeField] private UnityEvent<float> onSimilarityCalculated = new UnityEvent<float>();
-    
+
     [Header("UI")]
     public TextMeshProUGUI similar_show;
 
-    void Update()
+    void LateUpdate()
     {
-        Image_hint.texture = targetMask;
-
+        if (targetMask != null)
+            Image_hint.texture = targetMask;
     }
+
+    public void AddTarget(Texture2D mask)
+    {
+        targetMask = mask;
+        StartCoroutine(CheckSimilarDelay());
+    }
+
+    private IEnumerator CheckSimilarDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        CheckSimilarity();
+    }
+
     [ContextMenu("Check Similarity")]
     public void CheckSimilarity()
     {
@@ -106,16 +121,18 @@ public class ImageSimilarityTester : MonoBehaviour
             }
 
             float similarity = (float)intersection / union;
-            
+
             Debug.Log(
                 $"IoU: {similarity * 100f:F2}% | " +
                 $"Giao: {intersection} | Hop: {union}"
             );
-            
+
             double value_show = Math.Round(similarity * 100f, 2);
             similar_show.text = value_show.ToString() + "%";
 
             onSimilarityCalculated.Invoke(similarity);
+
+            Debug.Log("Test");
         }
         finally
         {

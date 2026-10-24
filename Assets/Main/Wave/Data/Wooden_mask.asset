@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e0b304ac74f9d4ab24db40a19cec58, type: 3}
   m_Name: Wooden_mask
   m_EditorClassIdentifier: Assembly-CSharp::Wave_data
-  wave_ID: 03
+  wave_ID: 06
   wave_name: WOODEN MASK
   hint: Wooden_mask
   infor: Wooden_mask
-  image_hint: {fileID: 2800000, guid: bd72d70ab2e2f2c46b7c213779a4cb76, type: 3}
+  image_hint: {fileID: 2800000, guid: 461db8e6c41f33c42a645d9d4af419e1, type: 3}
   image_result: {fileID: 21300000, guid: 5d10a1f0a4d45b9468b6752d1a3b22b4, type: 3}
   part_main: {fileID: 11400000, guid: 5564a3fdc6fc26e40a8ae4660758051d, type: 2}
   part_minis:
-  - {fileID: 11400000, guid: 3237edbdc803c024d96d85b7c650068f, type: 2}
-  - {fileID: 11400000, guid: 3edb646aa058bed46827d6781b4800aa, type: 2}
-  - {fileID: 11400000, guid: 2927fc89467868e45b48ca9a705e4807, type: 2}
   - {fileID: 11400000, guid: 67131fbc6a8f17a4caf797f02e6870e1, type: 2}
+  - {fileID: 11400000, guid: 2927fc89467868e45b48ca9a705e4807, type: 2}
+  - {fileID: 11400000, guid: 3237edbdc803c024d96d85b7c650068f, type: 2}
   - {fileID: 11400000, guid: 34dcdf45332fc5449a40fafcd2a2879b, type: 2}
+  - {fileID: 11400000, guid: 3edb646aa058bed46827d6781b4800aa, type: 2}
   - {fileID: 11400000, guid: 70b66dc3d5df7f545ad48dae844d7223, type: 2}
   part_mini_count: 6
-  isCompleted: 1
+  isCompleted: 0

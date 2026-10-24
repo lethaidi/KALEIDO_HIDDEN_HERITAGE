@@ -16,15 +16,15 @@ MonoBehaviour:
   wave_name: CELADON VASE
   hint: Celadon_vase
   infor: 'Celadon_vase infor '
-  image_hint: {fileID: 2800000, guid: e9ecd829e7b6931438037b7a88ca7b51, type: 3}
+  image_hint: {fileID: 2800000, guid: d7d7fa26b92618040ab3539daf3f1718, type: 3}
   image_result: {fileID: 21300000, guid: e4842cd53e40db445be7edd1005943f2, type: 3}
   part_main: {fileID: 11400000, guid: 0a81b4ec9c8258b4db9edafd27ce3284, type: 2}
   part_minis:
-  - {fileID: 11400000, guid: a1caab3a85caccc47afc8ff58de0e011, type: 2}
   - {fileID: 11400000, guid: 492122d13b9f4194eb8ac6ea23a372e3, type: 2}
-  - {fileID: 11400000, guid: c9ddfdc756b46f142802c9fcd06009d5, type: 2}
-  - {fileID: 11400000, guid: f1c4c09c87285dc44b0e208d37ea7d79, type: 2}
+  - {fileID: 11400000, guid: a1caab3a85caccc47afc8ff58de0e011, type: 2}
   - {fileID: 11400000, guid: 214ab0c543762a840b84bd840102e600, type: 2}
   - {fileID: 11400000, guid: 92b132bec4f920a47b4d083c0d502c53, type: 2}
+  - {fileID: 11400000, guid: f1c4c09c87285dc44b0e208d37ea7d79, type: 2}
+  - {fileID: 11400000, guid: c9ddfdc756b46f142802c9fcd06009d5, type: 2}
   part_mini_count: 6
   isCompleted: 1

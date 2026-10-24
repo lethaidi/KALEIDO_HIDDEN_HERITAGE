@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using System.Collections;
 
 public class Part_Base_rotation_controller : MonoBehaviour
 {
@@ -11,14 +12,18 @@ public class Part_Base_rotation_controller : MonoBehaviour
     [Header("Rotation Settings")]
     [SerializeField, Range(0.1f, 5f)]
     private float rotationSpeed = 1.5f;
-
+    public Vector3 default_direct = new Vector3(0f, 0f, 0f);
     [SerializeField] public bool enableRotation = true;
 
     [Header("Optional")]
     [SerializeField] private bool useInertia = true;
-
     [SerializeField, Min(0f)]
     private float inertiaDamping = 6f;
+
+    [Header("Reset Rotation Settings")]
+    [SerializeField, Min(0.01f)]
+    private float resetDuration = 0.5f;
+    private Coroutine resetCoroutine;
 
     private bool isDragging;
     private Vector2 lastPointerPosition;
@@ -246,10 +251,51 @@ public class Part_Base_rotation_controller : MonoBehaviour
 
     public void ResetRotation()
     {
-        transform.rotation = Quaternion.identity;
+        if (resetCoroutine != null)
+        {
+            StopCoroutine(resetCoroutine);
+        }
+
+        resetCoroutine = StartCoroutine(SmoothResetRotation());
+    }
+
+    private IEnumerator SmoothResetRotation()
+    {
+        // Dừng mọi chuyển động xoay hiện tại
         angularVelocity = Vector3.zero;
         isDragging = false;
         activeTouchId = -1;
+
+        enableRotation = false;
+
+        Quaternion startRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(default_direct);
+
+        float elapsed = 0f;
+
+        while (elapsed < resetDuration)
+        {
+            elapsed += Time.deltaTime;
+
+            float t = Mathf.Clamp01(elapsed / resetDuration);
+
+            // Ease In-Out giúp xoay mượt ở đầu và cuối
+            t = Mathf.SmoothStep(0f, 1f, t);
+
+            transform.rotation = Quaternion.Slerp(
+                startRotation,
+                targetRotation,
+                t
+            );
+
+            yield return null;
+        }
+
+        // Đảm bảo góc cuối chính xác
+        transform.rotation = targetRotation;
+
+        enableRotation = true;
+        resetCoroutine = null;
     }
 
     private bool IsPointerOverUI(Vector2 screenPosition)

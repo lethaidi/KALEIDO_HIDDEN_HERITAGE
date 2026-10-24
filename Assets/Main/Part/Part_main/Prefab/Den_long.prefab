@@ -1027,7 +1027,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_TargetDisplay: 0
 --- !u!114 &5636499822845054041
 MonoBehaviour:
@@ -1259,6 +1259,7 @@ GameObject:
   - component: {fileID: 4001772202745119163}
   - component: {fileID: 928003368323017834}
   - component: {fileID: 6967747533036291594}
+  - component: {fileID: 8796813217956069578}
   m_Layer: 0
   m_Name: Den_long
   m_TagString: Untagged
@@ -1298,9 +1299,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseRotationController
   targetCamera: {fileID: 0}
   rotationSpeed: 1.5
+  default_direct: {x: 0, y: 0, z: 0}
   enableRotation: 1
   useInertia: 0
   inertiaDamping: 6
+  resetDuration: 0.5
   puzzleValidationController: {fileID: 0}
 --- !u!114 &6967747533036291594
 MonoBehaviour:
@@ -1324,6 +1327,29 @@ MonoBehaviour:
   snapIndex: -1
   partManager: {fileID: 4358669720840294112}
   slotPartInteract: {fileID: 0}
+--- !u!114 &8796813217956069578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580119968724202469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b06dc33b5cd02f94b88a933ecd3c421e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Part_main_ani
+  visualTarget: {fileID: 0}
+  chargeDuration: 0.7
+  chargeScale: 1.08
+  shakeDuration: 0.65
+  shakeAngle: 7
+  shakePosition: 0.035
+  shakeFrequency: 25
+  shakeScale: 1.15
+  burstDuration: 0.18
+  burstScale: 1.35
+  disappearDuration: 0.2
 --- !u!1 &7653412457009427154
 GameObject:
   m_ObjectHideFlags: 0

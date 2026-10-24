@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.UI;
 using System;
@@ -85,12 +84,17 @@ public class Part_mini_rotate_manager : MonoBehaviour
 
         // Đăng ký sự kiện cho button
         Part_mini_trigger part_trigger = part_minis[oldLength].gameObject.GetComponent<Part_mini_trigger>();
+        Part_interact_ani part_Interact_Ani = part_minis[oldLength].gameObject.GetComponent<Part_interact_ani>();
         Button but = slot_snap_part[oldLength].GetComponent<Button>();
         if (but != null)
         {
             but.onClick.AddListener(() =>
             {
                 part_trigger.ChangeState();
+            });
+            but.onClick.AddListener(() =>
+            {
+                part_Interact_Ani.PlayAnimate();
             });
         }
     }
@@ -228,5 +232,15 @@ public class Part_mini_rotate_manager : MonoBehaviour
             return;
 
         delete_But.color = click ? new Color(0.5f, 0.5f, 0.5f, 1f) : Color.white;
+    }
+
+    public void ResetAllPartRotate()
+    {
+        if (part_main != null) part_main.ResetRotation();
+
+        foreach (var p in part_minis)
+        {
+            p.ResetRotation();
+        }
     }
 }

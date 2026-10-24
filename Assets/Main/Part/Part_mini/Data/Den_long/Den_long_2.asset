@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Part_data
   partID: 12
   partPrefab: {fileID: 1223275628495572500, guid: 9d1c77ee23dad2441acc73bc40d3f342, type: 3}
-  icon: {fileID: 21300000, guid: 655f86fbe87f75a4ab3ac966b94c9413, type: 3}
+  icon: {fileID: 21300000, guid: ed8d7e65332607d4ebd1692bc500e09a, type: 3}

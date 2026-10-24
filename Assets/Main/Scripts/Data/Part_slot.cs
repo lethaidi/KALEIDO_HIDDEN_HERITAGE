@@ -14,7 +14,7 @@ public class Part_slot : MonoBehaviour
 
     [Header("UI")]
     public Image partIcon;
-
+    public Image back;
     void Update()
     {
         if (part_Mini_Data != null)
@@ -26,13 +26,13 @@ public class Part_slot : MonoBehaviour
         hightlight.SetActive(false);
         isEmpty = true;
         // Giảm color của icon thành xám để hiển thị rằng slot trống
-        partIcon.color = Color.gray; // Màu xám
+        back.color = Color.gray; // Màu xám
     }
 
     public void SlotFilled()
     {
         isEmpty = false;
         // Khôi phục color của icon về màu trắng để hiển thị rằng slot đã được lấp đầy
-        partIcon.color = Color.white; // Màu trắng
+        back.color = Color.white; // Màu trắng
     }
 }

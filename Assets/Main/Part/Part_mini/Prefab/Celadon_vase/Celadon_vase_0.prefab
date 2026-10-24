@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5930574951399105243}
   - component: {fileID: -459055986643831511}
   - component: {fileID: -6818020603748402327}
+  - component: {fileID: 1005743292028313084}
   m_Layer: 0
   m_Name: Celadon_vase_0
   m_TagString: Untagged
@@ -79,9 +80,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseRotationController
   targetCamera: {fileID: 0}
   rotationSpeed: 1.5
+  default_direct: {x: -38.068, y: -26.141, z: 61.927}
   enableRotation: 0
   useInertia: 0
   inertiaDamping: 6
+  resetDuration: 0.5
   puzzleValidationController: {fileID: 0}
 --- !u!54 &-6818020603748402327
 Rigidbody:
@@ -110,6 +113,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1005743292028313084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223275628495572500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc60d64994dfa5344b34147dcc06e7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Part_interact_ani
+  shrinkScale: 0.85
+  popScale: 1.1
+  shrinkDuration: 0.08
+  popDuration: 0.12
+  returnDuration: 0.1
 --- !u!1 &3350723395784497016
 GameObject:
   m_ObjectHideFlags: 0

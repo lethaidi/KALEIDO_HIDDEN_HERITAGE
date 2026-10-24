@@ -5,7 +5,7 @@ public enum WaveState
 {
     Idle,
     Start,
-    Win 
+    Win
 }
 
 public class Wave_manager : MonoBehaviour
@@ -16,7 +16,7 @@ public class Wave_manager : MonoBehaviour
     #region 
     [Header("Wave data")]
     public Wave_data[] wave_datas;
-    [SerializeField] private int wave_index;
+    public int wave_index;
     [SerializeField] private Transform part_main_spawnPoint;
     private GameObject part_main;
     public GameObject wave_screen;
@@ -30,11 +30,17 @@ public class Wave_manager : MonoBehaviour
     public Slot_part_interact slot_Part_Interact;
     public Slot_manage slot_Manage;
     #endregion
-    
+
     #region 
     [Header("Validation")]
     public ImageSimilarityTester imageSimilarityTester;
     public PuzzleValidationController puzzleValidationController;
+    #endregion
+
+    #region 
+    [Header("UI")]
+    public GameObject masked;
+    public Result_manager result_Manager;
     #endregion
 
     void Awake()
@@ -44,10 +50,10 @@ public class Wave_manager : MonoBehaviour
         {
             wave_Slots = new Wave_slot[wave_grid.childCount];
             //Tìm danh sách con của grid
-            for (int i=0; i<wave_grid.childCount; i++)
+            for (int i = 0; i < wave_grid.childCount; i++)
             {
                 wave_Slots[i] = wave_grid.GetChild(i).gameObject.GetComponent<Wave_slot>();
-                
+
                 if (i >= wave_datas.Length) continue;
                 if (wave_Slots[i] != null && wave_datas[i] != null) wave_Slots[i].AddData(wave_datas[i]);
             }
@@ -56,7 +62,7 @@ public class Wave_manager : MonoBehaviour
 
     public void Replay()
     {
-        StartWave(wave_index);    
+        StartWave(wave_index);
     }
 
     public void StartNextWave()
@@ -64,12 +70,13 @@ public class Wave_manager : MonoBehaviour
         StartWave(wave_index + 1);
     }
     public void StartWave(int index)
-    {   
+    {
         if (index + 1 > wave_datas.Length) return;
         wave_index = index;
 
         if (wave_board != null) wave_board.SetActive(false);
         if (wave_screen != null) wave_screen.SetActive(true);
+        if (result_Manager != null) result_Manager.DisableAll();
 
         //Reset all old data & Restore new data
         if (slot_Manage != null) slot_Manage.SpawnSlot(wave_datas[index].part_mini_count);
@@ -96,14 +103,31 @@ public class Wave_manager : MonoBehaviour
         board_data.Init(wave_datas[wave_index]);
 
         //Set up ảnh mẫu validate
-        imageSimilarityTester.targetMask = wave_datas[index].image_hint;
+        imageSimilarityTester.AddTarget(wave_datas[index].image_hint);
         puzzleValidationController.ResetValidation();
-
-        ChangeState(WaveState.Start);;
+        puzzleValidationController.validator.Win(false);
+        
+        ChangeState(WaveState.Start); ;
     }
 
     public void ChangeState(WaveState state)
     {
         waveState = state;
+
+        if (waveState == WaveState.Win) PassWave();
+    }
+
+    public void PassWave()
+    {
+        //Chặn Input lên màn hình một khoảng delay
+        if (masked != null) masked.SetActive(true);
+        //Rung mainPart -> Ani xử lí spawn ảnh
+        Part_main_ani part_Main_Ani = part_main.GetComponent<Part_main_ani>();
+        if (part_Main_Ani != null) part_Main_Ani.PlayAnimate();
+    }
+
+    public void SpawnResultImage()
+    {
+        if (result_Manager != null) result_Manager.EnableIndex(wave_index);
     }
 }

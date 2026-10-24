@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32bb77793ac26454abc8856c36ed99d9, type: 3}
   m_Name: Wooden_mask
   m_EditorClassIdentifier: Assembly-CSharp::Part_main_data
-  partID: 03
+  partID: 06
   partPrefab: {fileID: 7580119968724202469, guid: 041406f1a0f41c04b9a29e91ca4fbf9c, type: 3}

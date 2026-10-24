@@ -20,6 +20,8 @@ public class PuzzleValidator : MonoBehaviour
     [Header("UI")]
     public GameObject win_board;
 
+    public Wave_manager wave_Manager;
+
     void OnEnable()
     {
         if (win_board != null) Win(false);
@@ -49,8 +51,8 @@ public class PuzzleValidator : MonoBehaviour
         {
             isCompleted = true;
             Debug.Log("WIN");
-
-            Win(isCompleted);
+            
+            if (wave_Manager != null) wave_Manager.ChangeState(WaveState.Win);
         }
     }
 
